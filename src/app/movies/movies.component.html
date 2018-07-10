@@ -10,7 +10,7 @@
     </ng-container>
     <ng-container matColumnDef="adult">
       <th mat-header-cell *matHeaderCellDef> Adulte ? </th>
-      <td mat-cell *matCellDef="let element"> {{element.adult}} </td>
+      <td mat-cell *matCellDef="let element" [innerHtml]="element.adult | adultPipe"></td>
     </ng-container>
     <ng-container matColumnDef="overview">
       <th mat-header-cell *matHeaderCellDef> Description </th>
