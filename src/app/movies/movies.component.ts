@@ -12,6 +12,7 @@ export class MoviesComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'popularity', 'adult', 'overview', 'release_date', 'vote_average', 'action'];
   dataSource = ELEMENT_DATA;
+  mode = 'list';
 
   constructor(private moviesService: MovieService) {
     moviesService.getAll().subscribe((res) => this.dataSource = res);

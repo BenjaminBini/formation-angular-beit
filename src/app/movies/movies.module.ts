@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MoviesComponent } from './movies.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieService } from './movie.service';
+import { CardComponent } from './card/card.component';
 
 const routes: Routes = [
   { path: '', component: MoviesComponent}
@@ -24,6 +25,7 @@ const routes: Routes = [
   ],
   declarations: [
     MoviesComponent,
+    CardComponent,
   ],
   providers: [
     MovieService

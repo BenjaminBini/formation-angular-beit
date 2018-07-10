@@ -1,4 +1,13 @@
-<div>
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="mode">
+  <mat-button-toggle value="list">
+    <i class="material-icons">list</i>
+  </mat-button-toggle>
+  <mat-button-toggle value="card">
+    <i class="material-icons">view_module</i>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+<div *ngIf="mode === 'list'">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Nom </th>
@@ -31,4 +40,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</div>
+<div *ngIf="mode === 'card'" class="cards">
+  <movie-card *ngFor="let movie of dataSource" [movie]="movie"></movie-card>
 </div>
