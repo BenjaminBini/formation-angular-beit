@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from './movie.service';
+
+const ELEMENT_DATA: any[] = [];
 
 @Component({
   selector: 'app-movies',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['title', 'popularity', 'adult', 'overview', 'release_date', 'vote_average', 'action'];
+  dataSource = ELEMENT_DATA;
+
+  constructor(private moviesService: MovieService) {
+    moviesService.getAll().subscribe((res) => this.dataSource = res);
+  }
 
   ngOnInit() {
   }

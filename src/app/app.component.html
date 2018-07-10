@@ -1,9 +1,12 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <span>Movies</span>
-    <button mat-raised-button color="primary">List</button>
+    <div>
+      <a [routerLink]="['/']" mat-raised-button color="primary">Home</a>
+      <a [routerLink]="['movies']" mat-raised-button color="primary">List</a>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <div>
-  <app-movies></app-movies>
+  <router-outlet></router-outlet>
 </div>
