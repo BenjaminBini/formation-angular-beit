@@ -4,8 +4,10 @@ import { MoviesComponent } from './movies.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { CardComponent } from './card/card.component';
-import { MovieService } from './movie.service';
 import { HttpModule } from '@angular/http';
+import { MovieMockService } from './movie.service.mock';
+import { MovieService } from './movie.service';
+import { of } from 'rxjs';
 
 describe('MoviesComponent', () => {
   let component: MoviesComponent;
@@ -15,7 +17,16 @@ describe('MoviesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MoviesComponent, CardComponent ],
       imports: [ CoreModule, SharedModule, RouterTestingModule, HttpModule ],
-      providers: [ MovieService ]
+      providers: [{
+        provide: MovieService,
+        /*
+        useValue: {
+          getAll : function(){
+            return of([]);
+         }
+        }*/
+        useValue: new MovieMockService()
+      }]
     })
     .compileComponents();
   }));

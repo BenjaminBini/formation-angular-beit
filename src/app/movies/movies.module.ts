@@ -32,9 +32,7 @@ const routes: Routes = [
     MovieEditComponent,
     MovieEditReactiveComponent,
   ],
-  providers: [
-    MovieService,
-  ],
+  providers: [MovieService],
   entryComponents: [
     MovieEditComponent,
     MovieEditReactiveComponent,

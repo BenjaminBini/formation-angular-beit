@@ -10,7 +10,7 @@ export class MovieService {
 
   constructor(private http: Http) { }
 
-  public getAll(): Observable<any> {
+  public getAll(): Observable<any[]> {
     return this.http.get(`${this.baseUrl}/movie`)
       .pipe(
         map((data) => {
