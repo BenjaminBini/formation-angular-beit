@@ -7,8 +7,11 @@ import { MoviesComponent } from './movies.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieService } from './movie.service';
 import { CardComponent } from './card/card.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { MovieEditReactiveComponent } from './movie-edit-reactive/movie-edit-reactive.component';
 
 const routes: Routes = [
+  { path: ':id', component: CardComponent},
   { path: '', component: MoviesComponent}
 ]
 
@@ -26,9 +29,15 @@ const routes: Routes = [
   declarations: [
     MoviesComponent,
     CardComponent,
+    MovieEditComponent,
+    MovieEditReactiveComponent,
   ],
   providers: [
-    MovieService
+    MovieService,
+  ],
+  entryComponents: [
+    MovieEditComponent,
+    MovieEditReactiveComponent,
   ]
 })
 export class MoviesModule { }

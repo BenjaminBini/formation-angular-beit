@@ -1,0 +1,19 @@
+<span>Ajout d'un commentaire pour {{movie.title}}</span>
+<form [formGroup]="rf">
+  <div class="form-group">
+    <mat-form-field>
+      <label for="title">Titre</label>
+      <input type="text" matInput class="form-control" name="title" formControlName="title">
+      <mat-error *ngIf="rf.controls.title?.errors?.required">
+        Le titre est obligatoire
+      </mat-error>
+      <mat-error *ngIf="rf.controls.title?.errors?.softLanguage">
+        T'es poli ou t'es pas poli ?
+      </mat-error>
+      <mat-error *ngIf="rf.controls.title?.errors?.minlength">
+        Le titre doit faire au moins 5 caractères
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <button mat-button [disabled]="rf.invalid">Ajouter</button>
+</form>

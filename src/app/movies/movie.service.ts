@@ -21,4 +21,17 @@ export class MovieService {
       )
     );
   }
+
+  public getById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/movie/${id}`)
+      .pipe(
+        map((data) => {
+          return data.json();
+        }, (err) => {
+          console.log('An error occured', err);
+        }
+      )
+    );
+  }
+
 }

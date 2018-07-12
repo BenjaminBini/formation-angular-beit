@@ -6,6 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -17,6 +21,10 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatInputModule,
   ],
   exports: [
     FormsModule,
@@ -26,6 +34,10 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatInputModule,
   ],
   declarations: []
 })

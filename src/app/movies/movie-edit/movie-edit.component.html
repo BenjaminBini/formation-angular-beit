@@ -1,0 +1,96 @@
+<h1>Ajout d'un commentaire pour {{movie.title}}</h1>
+<form #f="ngForm">
+    <div>
+        <mat-form-field class="example-full-width">
+        <input 
+            type="text" 
+            name="title" 
+            #title="ngModel"
+            [(ngModel)]="comment.title"
+            matInput 
+            [required]="true" 
+            placeholder="Titre du commentaire"
+            minlength="5"
+            maxlength="30"
+            appSoftLanguage>
+            <mat-error *ngIf="title.hasError('required')">
+                Le titre est obligatoire
+            </mat-error>
+            <mat-error *ngIf="title.hasError('minlength')">
+                Le titre doit faire au moins 5 caractères
+            </mat-error>
+            <mat-error *ngIf="title.hasError('softlanguage')">
+                Soit poli mon ami
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <textarea 
+                rows="10"
+                name="text" 
+                #text="ngModel"
+                [(ngModel)]="comment.text"
+                matInput 
+                [required]="true" 
+                placeholder="Texte du commentaire"
+                minlength="25"
+                maxlength="150"
+                appSoftLanguage></textarea>
+            <mat-error *ngIf="text.hasError('required')">
+                Le texte est obligatoire
+            </mat-error>
+            <mat-error *ngIf="text.hasError('minlength')">
+                Le texte doit faire au moins 25 caractères
+            </mat-error>
+            <mat-error *ngIf="text.hasError('softlanguage')">
+                Soit poli mon ami
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <input 
+                type="date" 
+                name="date" 
+                #date="ngModel"
+                [(ngModel)]="comment.date"
+                matInput 
+                [required]="true" 
+                viewDateValidator
+                placeholder="Date de vue du film">
+            <mat-error *ngIf="date.hasError('required')">
+                La date est obligatoire
+            </mat-error>
+            <mat-error *ngIf="date.hasError('wrong-date')">
+                La date doit être antérieure à celle du jour
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <input 
+                type="number" 
+                name="note" 
+                #note="ngModel"
+                [(ngModel)]="comment.note"
+                matInput 
+                [required]="true" 
+                placeholder="Note"
+                min="0"
+                max="10"
+                [colorizedNote]="comment.note">
+            <mat-error *ngIf="note.hasError('required')">
+                La note est obligatoire
+            </mat-error>
+        </mat-form-field>
+    </div>
+    
+    <div style="margin-top: 20px">
+        <button mat-button [disabled]="f.invalid">
+            Ajouter
+        </button>
+    </div>
+</form>
+
+<div>{{comment | json}}</div>
